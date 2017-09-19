@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Connection Check</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/badges.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/canvasjs.min.js"></script>
+    <script src="js/script.js"></script>
+
+
+</head>
+<body>
+
+<div class="container">
+    <h2></h2>
+    <div class="panel panel-default" id="panel">
+        <div class="panel-body">
+            <div id="alerts"></div>
+            </br>
+            </br>
+
+            <div style="width: 50%; margin-left:25%;margin-right: 25%;">
+
+                <form action="javscript:void(0);">
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label>Host</label></labek>
+                        <input id="hostname" name="hostname" type="url" placeholder="HostName"
+                               class="form-control input-md" required>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label>Port</label>
+                        <input id="port" name="port" type="number" placeholder="Port" class="form-control input-md"
+                               required>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label>Interval (secs)</label>
+                        <input id="interval" name="interval" type="number" placeholder="Interval (secs)"
+                               class="form-control input-md" required>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label>Timeout (secs)</label>
+                        <input id="timeout" name="timeout" type="number" placeholder="Timeout (secs)"
+                               class="form-control input-md" required>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label>Duration (mins)</label>
+                        <input id="duration" name="duration" type="number" placeholder="Duration (mins)"
+                               class="form-control input-md" required>
+                    </div>
+
+                    <!-- Button (Double) -->
+                    <div class="form-group" style="text-align: center">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button id="beginTest" name="beginTest" type=button" class="btn btn-success"
+                                        data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing Results">
+                                    Begin Test
+                                </button>
+                            </div>
+                            <div class="col-md-6">
+                                <button id="resetTest" name="beginTest" type=button" class="btn btn-danger">
+                                    Reset Test
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <hr>
+
+
+            <h2>Results <span ></span><span  style="margin-left:5%;"></span></h2>
+            </p>
+            <div class="tabbable-panel">
+                <div class="tabbable-line">
+                    <ul class="nav nav-tabs ">
+                        <li class="active">
+                            <a href="#tab_default_1" data-toggle="tab">
+                                Requests Chart </a>
+                        </li>
+                        <li>
+                            <a href="#tab_default_2" data-toggle="tab">
+                                Details </a>
+                        </li>
+                        <li>
+                            <a href="#tab_default_3" data-toggle="tab" id="files_tab" class="disabled">
+                                Files <span class="badge badge-success" id="files_badge"></span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab_default_1">
+                            <div id="chartContainer" style="height: 100px; width: 100%;"></div>
+
+                        </div>
+                        <div class="tab-pane" id="tab_default_2">
+                        </br>
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Start</th>
+                                    <th>Requests</th>
+                                    <th>Disponibility</th>
+                                    <th>MTBF</th>
+                                    <th>Errors</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><span id="startDate"></span></td>
+                                    <td><span id="requests_number"></span></td>
+                                    <td><span id="success_rate"></span></td>
+                                    <td><span id="mtbf"></span></td>
+                                    <td><span id="errors" ></span></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="tab_default_3">
+                        </br>
+                            <center>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <img src="images/csv.png" class="img-responsive img-radio" style="width:20%;height:20%;">
+                                    <a class="btn btn-primary" id="results_file1">Details</a>
+                                </div>
+                                <div class="col-xs-6">
+                                    <img src="images/csv.png" class="img-responsive img-radio" style="width:20%;height:20%;" >
+                                    <a class="btn btn-primary" id="results_file2">Requests</a>
+                                </div>
+                            </div>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </br>
+
+    </div>
+    </br>
+
+</div>
+
+</body>
+</html>
